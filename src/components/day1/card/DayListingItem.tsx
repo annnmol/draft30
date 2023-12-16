@@ -1,6 +1,7 @@
+import { AppText } from '@/components/core';
+import { Link, router } from 'expo-router';
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import { AppText } from "../../core";
+import { Pressable, StyleSheet } from "react-native";
 
 interface Props {
   item: {
@@ -10,12 +11,22 @@ interface Props {
 }
 
 const DayListingItem: React.FC<Props> = ({ item }) => {
+
+  const desiredRoute = `day${item?.value}`;
+
+  const handleCardPress = () => {
+    router.replace(desiredRoute);
+  }
+
+
   return (
-    <View style={styles.card}>
+    <Link href={{pathname:desiredRoute,params:{id:item?.value}}} asChild>
+    <Pressable style={styles.card}>
       <AppText variant="h3" style={styles.title}>
         {item?.label}
       </AppText>
-    </View>
+    </Pressable>
+    </Link>
   );
 };
 

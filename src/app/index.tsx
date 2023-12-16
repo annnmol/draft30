@@ -2,8 +2,9 @@ import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
-import { DAYS_LISTING_DATA } from "./src/assets/dummyData/contants";
-import DayListingItem from "./src/components/day0/card/DayListingItem";
+import { DAYS_LISTING_DATA } from "@/assets/dummyData/contants";
+import DayListingItem from "@components/day1/card/DayListingItem";
+
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
