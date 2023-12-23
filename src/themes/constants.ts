@@ -1,4 +1,4 @@
-import { Dimensions, Platform, StatusBar } from "react-native";
+import { Dimensions, Platform, StatusBar, StyleSheet } from "react-native";
 
 const constants = {
   spacingLXX: 32,
@@ -12,6 +12,8 @@ const constants = {
   statusBarHeight: Platform.OS === "ios" ? 20 : StatusBar.currentHeight,
   windowWidth: Dimensions.get("window").width,
   windowHeight: Dimensions.get("window").height,
+  borderRadius: 8,
+  borderWidth: StyleSheet.hairlineWidth,
 };
 
 export default constants;

@@ -1,14 +1,16 @@
-import { AppText } from "@components/core";
-import { useLocalSearchParams } from "expo-router";
+import { Stack, useLocalSearchParams } from "expo-router";
 import React from "react";
 import { View } from "react-native";
 
+import { globalStyles } from "@/themes";
+import { AppText } from "@components/core";
+
 const DayDetailsScreen = () => {
-  const params = useLocalSearchParams();
-  // console.log({params});
+  const {id} = useLocalSearchParams();
   return (
-    <View>
-      <AppText variant="h5">Day Details Screen {params?.id}</AppText>
+    <View style={globalStyles.appScreen}>
+        <Stack.Screen options={{title: `Day ${id}`}} />
+      <AppText variant="h5">Day Details Screen {id }</AppText>
     </View>
   );
 };

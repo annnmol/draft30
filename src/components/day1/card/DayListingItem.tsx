@@ -22,7 +22,7 @@ const DayListingItem: React.FC<Props> = ({ item }) => {
   return (
     <Link href={{pathname:desiredRoute,params:{id:item?.value}}} asChild>
     <Pressable style={styles.card}>
-      <AppText variant="h3" style={styles.title}>
+      <AppText variant="h4" style={styles.title}>
         {item?.label}
       </AppText>
     </Pressable>

@@ -1,33 +1,22 @@
-import * as SplashScreen from "expo-splash-screen";
-import { StatusBar } from "expo-status-bar";
-import { useEffect } from "react";
+import { Stack } from "expo-router";
 import { FlatList, StyleSheet, View } from "react-native";
+
 import { DAYS_LISTING_DATA } from "@/assets/dummyData/contants";
+import { constants, globalStyles } from "@/themes";
 import DayListingItem from "@components/day1/card/DayListingItem";
 
-
-// Keep the splash screen visible while we fetch resources
-// SplashScreen.preventAutoHideAsync();
-SplashScreen.preventAutoHideAsync();
-
 export default function App() {
-  
-  useEffect(() => {
-    //     //hide the splash screen
-    SplashScreen.hideAsync();
-  }, []);
-
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <Stack.Screen options={{ title: "Draft 30" }} />
       <FlatList
         data={DAYS_LISTING_DATA}
         renderItem={({ item, index }) => (
           <DayListingItem item={item} key={index} />
         )}
         keyExtractor={(item, index) => index.toString()}
-        numColumns={2}
-        contentContainerStyle={styles.flatlist}
+        numColumns={3}
+        contentContainerStyle={styles.flatlistContainer}
         columnWrapperStyle={styles.flatlistColumn}
         showsVerticalScrollIndicator={false}
       />
@@ -36,16 +25,14 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#d49b9b",
+  container: globalStyles.appScreen,
+
+  flatlistContainer: {
+    gap: constants.spacingM,
   },
-  flatlist: {
-    padding: 10,
-    gap: 10,
-  },
+
   flatlistColumn: {
-    gap: 10,
+    gap: constants.spacingM,
   },
 
   item: {
@@ -53,7 +40,7 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 6,
-    borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: constants.borderRadius,
+    borderWidth: constants.borderWidth,
   },
 });

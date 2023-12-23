@@ -1,4 +1,4 @@
-const typography = {
+const typography:any = {
   h1: {
     fontWeight: "600",
     fontSize: 32,
