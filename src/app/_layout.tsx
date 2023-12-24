@@ -3,6 +3,7 @@ import { Stack } from "expo-router";
 import { useEffect } from "react";
 import { StyleSheet } from "react-native";
 
+//user defined components
 import { theme, typography } from "@/themes";
 
 // Keep the splash screen visible while we fetch resources

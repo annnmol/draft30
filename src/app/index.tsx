@@ -1,6 +1,7 @@
 import { Stack } from "expo-router";
 import { FlatList, StyleSheet, View } from "react-native";
 
+//user defined components
 import { DAYS_LISTING_DATA } from "@/assets/dummyData/contants";
 import { constants, globalStyles } from "@/themes";
 import DayListingItem from "@components/day1/card/DayListingItem";

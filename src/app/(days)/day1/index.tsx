@@ -2,8 +2,9 @@ import { Stack, useLocalSearchParams } from "expo-router";
 import React from "react";
 import { View } from "react-native";
 
+//user defined components
 import { globalStyles } from "@/themes";
-import { AppText } from "@components/core";
+import { AppText } from "@components/core/text";
 
 const DayDetailsScreen = () => {
   const {id} = useLocalSearchParams();
