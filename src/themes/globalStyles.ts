@@ -18,11 +18,11 @@ const globalStyles = StyleSheet.create({
   },
   appScreen: {
     paddingVertical: constants.spacingM,
-    paddingHorizontal: constants.spacingM,
-    borderWidth: 2,
-      borderColor: theme.error,
-      flex: 1,
+    paddingHorizontal: constants.spacing,
+    flex: 1,
     backgroundColor: theme.background,
+    // borderWidth: 2,
+    // borderColor: theme.error,
   },
 
   // text: {
@@ -32,4 +32,3 @@ const globalStyles = StyleSheet.create({
 });
 
 export default globalStyles;
-

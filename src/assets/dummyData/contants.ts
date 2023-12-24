@@ -25,3 +25,5 @@ export const CAROUSEL_DATA = [
     image: "https://source.unsplash.com/random/?hills",
   },
 ];
+
+export const awsS3Image = "https://anmol-apps.s3.ap-south-1.amazonaws.com/rn-draft30/strangerThings.webp";

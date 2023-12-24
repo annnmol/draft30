@@ -15,7 +15,6 @@ interface Props extends React.ComponentProps<typeof TouchableOpacity> {
   variant?: "outline" | "primary" | "text";
   textVariant?: "button1" | "button2" | "button3";
   style?: StyleProp<ViewStyle>;
-  subText?: string;
   onPress: () => void;
   children: React.ReactNode;
   [otherProps: string]: any;
@@ -28,7 +27,6 @@ const AppButton: React.FC<Props> = ({
   textVariant = "button1",
   children,
   onPress,
-  subText,
   ...otherProps
 }) => {
   if (variant === "outline")
@@ -53,7 +51,7 @@ const AppButton: React.FC<Props> = ({
         style={[styles.textButton, style && style]}
         {...otherProps}
       >
-        <AppText style={[styles.text, textStyle]} variant={textVariant}>
+        <AppText style={[styles.text, {textDecorationLine: 'underline'},textStyle]} variant={textVariant}>
           {children}
         </AppText>
       </TouchableOpacity>
@@ -69,11 +67,6 @@ const AppButton: React.FC<Props> = ({
       <AppText style={[styles.text, textStyle]} variant={textVariant}>
         {children}
       </AppText>
-      {subText && (
-        <AppText variant={"body3"} style={[styles.text, { lineHeight: 14 }]}>
-          {subText}
-        </AppText>
-      )}
     </TouchableOpacity>
   );
 };
@@ -88,7 +81,7 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,0.9)",
   },
   textOutline: {
-    color: theme.accent,
+    color: theme.accent
   },
 
   primaryButton: {
@@ -103,7 +96,9 @@ const styles = StyleSheet.create({
 
   //*outline
   outlineButton: {
-    backgroundColor: theme.white,
+    // backgroundColor: ,
+    borderColor: theme.accent,
+    borderWidth: 1,
     width: "100%",
     height: 44,
     borderRadius: 8,

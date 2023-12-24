@@ -1,7 +1,9 @@
-import { AppText } from "@/components/core/text";
-import { Link, router } from "expo-router";
+import { useRouter } from "expo-router";
 import React from "react";
 import { Pressable, StyleSheet } from "react-native";
+
+//user defined components
+import { AppText } from "@/components/core/text";
 
 interface Props {
   item: {
@@ -11,23 +13,19 @@ interface Props {
 }
 
 const DayListingItem: React.FC<Props> = ({ item }) => {
+  const router = useRouter();
   const desiredRoute = `day${item?.value}`;
-
+  
   const handleCardPress = () => {
-    router.replace(desiredRoute);
+    router.push({ pathname: desiredRoute });
   };
 
   return (
-    <Link
-      href={{ pathname: desiredRoute, params: { id: item?.value } }}
-      asChild
-    >
-      <Pressable style={styles.card}>
-        <AppText variant="h4" style={styles.title}>
-          {item?.label}
-        </AppText>
-      </Pressable>
-    </Link>
+    <Pressable style={styles.card} onPress={handleCardPress}>
+      <AppText variant="h4" style={styles.title}>
+        {item?.label}
+      </AppText>
+    </Pressable>
   );
 };
 
